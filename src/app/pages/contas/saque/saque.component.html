@@ -1,0 +1,18 @@
+<h1>Saque</h1>
+<form [formGroup]="formSaque" (ngSubmit)="saque()">
+    <div class="row mb-3">
+    <div class="col">
+      <label for="agencia" class="form-label">Agência</label>
+      <input type="text" id="agencia" class="form-control" formControlName="agencia">
+    </div>
+    <div class="col">
+      <label for="numeroConta" class="form-label">Conta</label>
+      <input type="text" id="numeroConta" class="form-control" formControlName="numeroConta">
+    </div>
+    <div class="col">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="number" id="valor" class="form-control" formControlName="valor">
+    </div>
+  </div>
+  <button type="submit" [disabled]="!formSaque.valid" class="btn btn-primary">Saque</button>
+</form>

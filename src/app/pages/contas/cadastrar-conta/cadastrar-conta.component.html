@@ -1,0 +1,30 @@
+<div class="col-12">
+    <h2 class="pb-2 border-bottom">{{idConta ? 'Editar' : 'Cadastrar'}} Conta</h2>
+</div>
+
+<form [formGroup]="contaForm" (ngSubmit)="salvarConta()">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Cliente</label>
+        <select *ngIf="!buscarClientePorCpf" class="form-select" formControlName="idCliente">
+          <option value="null" hidden>Clientes</option>
+          <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nome }}</option>
+        </select>
+        <input *ngIf="buscarClientePorCpf" class="form-control" disabled type="text" [value]="buscarClientePorCpf?.nome">
+    </div>
+    <div class="mb-3">
+        <label for="agencia" class="form-label">Agencia</label>
+        <input type="text" class="form-control" id="agencia" formControlName="agencia">
+        <div id="emailHelp" class="form-text">Digite a agencia</div>
+    </div>
+    <div class="mb-3">
+        <label for="numero" class="form-label">Conta</label>
+        <input type="text" class="form-control" id="numero" formControlName="numero">
+        <div id="emailHelp" class="form-text">Digite a conta</div>
+    </div>
+    <div class="mb-3">
+        <label for="saldo" class="form-label">Seu saldo</label>
+        <input type="number" class="form-control" id="saldo" formControlName="saldo">
+        <div id="emailHelp" class="form-text">Primeiro depósito</div>
+    </div>
+    <button type="submit" [disabled]="!contaForm.valid" class="btn btn-primary">{{idConta ? 'Editar' : 'Cadastrar'}} Conta</button>
+</form>

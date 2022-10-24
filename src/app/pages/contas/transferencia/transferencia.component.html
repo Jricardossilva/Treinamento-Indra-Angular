@@ -1,0 +1,33 @@
+<h1>Transferência</h1>
+
+<form [formGroup]="formTransferencia" class="mb-3" (ngSubmit)="transferencia()">
+
+    <div class="row">
+      <div class="col">
+        <label for="agenciaOrigem" class="form-label">Agência Origem</label>
+        <input maxlength="4" id="agenciaOrigem" type="text" class="form-control"  formControlName="agenciaOrigem">
+      </div>
+      <div class="col">
+        <label for="numeroContaOrigem" class="form-label">Conta Origem</label>
+        <input maxlength="6" id="numeroContaOrigem" type="text" class="form-control"  formControlName="numeroContaOrigem">
+      </div>
+    </div>
+    
+    <div class="row mt-4">
+      <div class="col">
+        <label for="agenciaDestino" class="form-label">Agência Destino</label>
+        <input maxlength="4" id="agenciaDestino" type="text" class="form-control"  formControlName="agenciaDestino">
+      </div>
+      <div class="col">
+        <label for="numeroContaDestino" class="form-label">Conta Destino</label>
+        <input maxlength="6"  type="text" class="form-control"  formControlName="numeroContaDestino">
+      </div>
+      <div class="col">
+        <label for="valor" class="form-label">Valor</label>
+        <input  type="number" id="valor" class="form-control"  formControlName="valor">
+      </div>
+    </div>
+  <div class="d-flex justify-content">
+  <button type="submit" [disabled]="!formTransferencia.valid" class="mt-4 btn btn-primary text-center">Transferir</button>
+  </div>
+</form>

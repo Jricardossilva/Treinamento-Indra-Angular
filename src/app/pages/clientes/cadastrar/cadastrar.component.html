@@ -1,0 +1,33 @@
+<div class="col-12">
+    <h2 class="pb-2 border-bottom">{{idCliente ? 'Editar' : 'Cadastrar'}} Clientes</h2>
+  </div>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="cadastrar()">
+    <div class="row">
+        <div class="col">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" formControlName="nome">
+            <div id="emailHelp" class="form-text">Digite o nome do cliente.</div>
+        </div>
+        <div class="mb-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" formControlName="cpf">
+            <div id="emailHelp" class="form-text">Digite um CPF válido.</div>
+        </div>
+        </div>
+        <div class="col">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div id="emailHelp" class="form-text">Digite o email do cliente.</div>
+          </div> 
+          <div class="mb-3">
+            <label for="observacoes" class="form-label">Observações</label>
+            <input type="text" class="form-control" id="observacoes" formControlName="observacoes" row="3">
+            <div id="emailHelp" class="form-text">Digite aqui suas observações.</div>
+          </div> 
+        </div>
+    </div>
+    <button type="submit" [disabled]="!clienteForm.valid" class="btn btn-primary">{{idCliente ? 'Editar' : 'Cadastrar'}} Clientes</button>
+</form>
